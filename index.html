@@ -10,7 +10,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#0D0D0D;--cream:#F5F0E8;--amber:#E8A020;--amber-l:#FFC84A;--slate:#2A2F3F;--muted:#7A7A8A;--card:#FDFAF4;--white:#fff;--border:rgba(0,0,0,0.08)}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
-h1,h2,h3,h4,.font-d{font-family:'Syne',sans-serif}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
 a{text-decoration:none;color:inherit}
 input,textarea,select{font-family:'DM Sans',sans-serif}
 .page{display:none}.page.active{display:block}
@@ -23,12 +23,9 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:100px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
 .btn-dark{background:var(--ink);color:var(--white);box-shadow:0 2px 12px rgba(0,0,0,0.15)}
 .btn-dark:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
-.btn-amber{background:var(--amber);color:var(--ink)}
-.btn-amber:hover{background:var(--amber-l)}
-.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--ink)}
-.btn-lg{padding:14px 32px;font-size:15px}
-.btn-sm{padding:7px 16px;font-size:13px}
+.btn-amber{background:var(--amber);color:var(--ink)}.btn-amber:hover{background:var(--amber-l)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}.btn-outline:hover{border-color:var(--ink)}
+.btn-lg{padding:14px 32px;font-size:15px}.btn-sm{padding:7px 16px;font-size:13px}
 .badge{display:inline-flex;align-items:center;gap:6px;background:var(--amber-l);color:var(--ink);padding:5px 13px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
 .tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:all 0.2s}
@@ -37,8 +34,7 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
 .input-wrap label{font-size:13px;font-weight:600;color:var(--slate)}
 .input-field{padding:11px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:14px;background:var(--white);outline:none;transition:border 0.2s;color:var(--ink)}
 .input-field:focus{border-color:var(--amber)}
-.section{padding:80px 48px}
-.container{max-width:1100px;margin:0 auto}
+.section{padding:80px 48px}.container{max-width:1100px;margin:0 auto}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -60,7 +56,6 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
 .tab-btn{padding:8px 20px;border-radius:9px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif}
 .tab-btn.active{background:var(--white);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .avatar{width:40px;height:40px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--ink);flex-shrink:0}
-.divider{height:1px;background:var(--border);margin:20px 0}
 .empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
 .empty-state .empty-icon{font-size:48px;margin-bottom:16px}
 .spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--ink);border-radius:50%;animation:spin 0.6s linear infinite}
@@ -72,7 +67,6 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="nav" id="main-nav">
   <div class="logo" onclick="navigate('home')"><span class="logo-dot"></span>TripSend</div>
   <div class="nav-links" id="nav-links">
@@ -81,20 +75,16 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
   </div>
   <div class="nav-right" id="nav-right">
     <button class="btn btn-outline btn-sm" onclick="navigate('auth')">Log in</button>
-    <button class="btn btn-dark btn-sm" onclick="navigate('auth', {mode:'signup'})">Sign Up Free</button>
+    <button class="btn btn-dark btn-sm" onclick="navigate('auth',{mode:'signup'})">Sign Up Free</button>
   </div>
 </nav>
 
-<!-- ===================== HOME PAGE ===================== -->
+<!-- HOME -->
 <div id="page-home" class="page active">
-  <!-- HERO -->
   <section style="display:grid;grid-template-columns:1fr 1fr;min-height:90vh">
     <div style="display:flex;flex-direction:column;justify-content:center;padding:60px 48px">
       <div class="badge" style="margin-bottom:28px">✈ Beta — Join Free Today</div>
-      <h1 style="font-size:clamp(40px,5vw,64px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px">
-        Send anything.<br>Anywhere.<br>
-        <span style="color:var(--amber);text-decoration:underline;text-decoration-color:rgba(232,160,32,0.3);text-decoration-thickness:4px">With travelers.</span>
-      </h1>
+      <h1 style="font-size:clamp(40px,5vw,64px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px">Send anything.<br>Anywhere.<br><span style="color:var(--amber);text-decoration:underline;text-decoration-color:rgba(232,160,32,0.3);text-decoration-thickness:4px">With travelers.</span></h1>
       <p style="font-size:17px;color:var(--muted);line-height:1.7;max-width:420px;margin-bottom:40px">Connect with real people already heading your way. Chat, negotiate, pay securely — your package rides with a trusted traveler.</p>
       <div style="display:flex;gap:14px;align-items:center;margin-bottom:56px">
         <button class="btn btn-dark btn-lg" onclick="navigate('auth',{mode:'signup',role:'sender'})">Start Sending</button>
@@ -119,9 +109,7 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
           <div style="flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--muted) 0,var(--muted) 4px,transparent 4px,transparent 8px)"></div>
           <div style="width:8px;height:8px;border-radius:50%;background:var(--amber)"></div><span>LHR</span>
         </div>
-        <div style="display:flex;justify-content:space-between;font-size:12px">
-          <span style="color:var(--muted)">Mar 15 · 5kg free</span><span style="font-weight:700;font-size:14px">from $18</span>
-        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--muted)">Mar 15 · 5kg free</span><span style="font-weight:700;font-size:14px">from $18</span></div>
       </div>
       <div style="position:absolute;top:48px;right:-10px;z-index:2;background:rgba(255,255,255,0.97);border-radius:20px;padding:18px 22px;box-shadow:0 20px 60px rgba(0,0,0,0.2);width:190px;text-align:center;animation:float 4s ease-in-out infinite 1.5s">
         <div style="font-size:28px;margin-bottom:6px">🔐</div>
@@ -132,7 +120,6 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="section" style="background:#fff" id="how">
     <div class="container">
       <div class="tag">Simple Process</div>
@@ -140,14 +127,13 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
       <p style="color:var(--muted);font-size:16px;max-width:480px;line-height:1.7;margin-bottom:56px">No warehouses. No tracking nightmares. Just real people carrying packages on real trips.</p>
       <div class="grid-4">
         <div class="card"><div style="width:40px;height:40px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-weight:700;font-size:14px;margin-bottom:16px">01</div><div style="font-size:26px;margin-bottom:10px">🔍</div><h4 style="margin-bottom:8px">Find a Traveler</h4><p style="font-size:13px;color:var(--muted);line-height:1.6">Browse trips heading to your destination. Filter by date, space, and price.</p></div>
-        <div class="card"><div style="width:40px;height:40px;background:var(--amber);color:var(--ink);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-weight:700;font-size:14px;margin-bottom:16px">02</div><div style="font-size:26px;margin-bottom:10px">💬</div><h4 style="margin-bottom:8px">Chat & Negotiate</h4><p style="font-size:13px;color:var(--muted);line-height:1.6">Message the traveler directly. Agree on price and package details in real time.</p></div>
+        <div class="card"><div style="width:40px;height:40px;background:var(--amber);color:var(--ink);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-weight:700;font-size:14px;margin-bottom:16px">02</div><div style="font-size:26px;margin-bottom:10px">💬</div><h4 style="margin-bottom:8px">Chat & Negotiate</h4><p style="font-size:13px;color:var(--muted);line-height:1.6">Message the traveler directly. Agree on price and details in real time.</p></div>
         <div class="card"><div style="width:40px;height:40px;background:var(--ink);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-weight:700;font-size:14px;margin-bottom:16px">03</div><div style="font-size:26px;margin-bottom:10px">🔐</div><h4 style="margin-bottom:8px">Pay Securely</h4><p style="font-size:13px;color:var(--muted);line-height:1.6">Funds held in escrow. Traveler gets paid only after confirmed delivery.</p></div>
         <div class="card"><div style="width:40px;height:40px;background:var(--amber);color:var(--ink);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-weight:700;font-size:14px;margin-bottom:16px">04</div><div style="font-size:26px;margin-bottom:10px">✅</div><h4 style="margin-bottom:8px">Confirm & Release</h4><p style="font-size:13px;color:var(--muted);line-height:1.6">Traveler marks delivered. You approve. Payment releases instantly.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ROLES -->
   <section class="section">
     <div class="container grid-2">
       <div style="border-radius:28px;background:var(--ink);color:#fff;padding:48px 44px;position:relative;overflow:hidden;min-height:340px">
@@ -181,13 +167,12 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
     </div>
   </section>
 
-  <!-- TRUST -->
   <section style="background:var(--ink);padding:80px 48px">
     <div class="container" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center">
       <div><h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;color:#fff;line-height:1.2">Built on trust.<br><span style="color:var(--amber)">Protected<br>by escrow.</span></h2></div>
       <div style="display:flex;flex-direction:column;gap:24px">
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:44px;height:44px;background:rgba(255,255,255,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🔐</div><div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Escrow Protection</div><p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6">Payment held until delivery confirmed. Nobody loses money.</p></div></div>
-        <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:44px;height:44px;background:rgba(255,255,255,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">💬</div><div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Verified Users</div><p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6">Every user is verified before posting trips or bookings.</p></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:44px;height:44px;background:rgba(255,255,255,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">💬</div><div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Verified Users</div><p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6">Every user verified before posting trips or bookings.</p></div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:24px">
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:44px;height:44px;background:rgba(255,255,255,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">⭐</div><div><div style="font-family:Syne,sans-serif;font-weight:700;font-size:14px;color:#fff;margin-bottom:4px">Ratings & Reviews</div><p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6">Community reputation keeps standards high on both sides.</p></div></div>
@@ -196,7 +181,6 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="section" style="text-align:center">
     <h2 style="font-size:clamp(30px,4vw,50px);font-weight:800;letter-spacing:-2px;margin-bottom:14px">Ready to send or earn?</h2>
     <p style="color:var(--muted);font-size:17px;margin-bottom:36px">Join TripSend free. No credit card required.</p>
@@ -209,35 +193,32 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
   <footer style="background:var(--ink);color:rgba(255,255,255,0.45);padding:36px 48px;display:flex;justify-content:space-between;align-items:center;font-size:13px">
     <div style="font-family:Syne,sans-serif;font-weight:800;font-size:18px;color:#fff">TripSend</div>
     <div>© 2025 TripSend. All rights reserved.</div>
-    <div style="display:flex;gap:20px"><span style="cursor:pointer">Privacy</span><span style="cursor:pointer">Terms</span><span style="cursor:pointer">Contact</span></div>
+    <div style="display:flex;gap:20px">
+      <span style="cursor:pointer">Privacy</span>
+      <span style="cursor:pointer">Terms</span>
+      <span style="cursor:pointer;color:rgba(255,255,255,0.2)" onclick="navigate('setup')">Setup</span>
+    </div>
   </footer>
 </div>
 
-<!-- ===================== AUTH PAGE ===================== -->
+<!-- AUTH -->
 <div id="page-auth" class="page">
   <div style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr">
     <div style="background:var(--ink);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:60px">
       <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=1200&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3" alt=""/>
       <div style="position:relative;z-index:1">
         <div style="font-family:Syne,sans-serif;font-weight:800;font-size:22px;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:48px"><span style="width:10px;height:10px;background:var(--amber);border-radius:50%;display:inline-block"></span>TripSend</div>
-        <h2 style="font-size:40px;font-weight:700;letter-spacing:-1px;color:#fff;margin-bottom:16px;line-height:1.2">Every traveler is a delivery opportunity.</h2>
-        <p style="color:rgba(255,255,255,0.55);font-size:15px;line-height:1.7">Join thousands of senders and travelers already using TripSend to move packages smarter.</p>
-        <div style="display:flex;gap:24px;margin-top:36px">
-          <div><div style="font-family:Syne,sans-serif;font-size:22px;font-weight:800;color:#fff">100%</div><div style="font-size:12px;color:rgba(255,255,255,0.45)">Escrow Protected</div></div>
-          <div><div style="font-family:Syne,sans-serif;font-size:22px;font-weight:800;color:#fff">Free</div><div style="font-size:12px;color:rgba(255,255,255,0.45)">To Join</div></div>
-        </div>
+        <h2 style="font-size:38px;font-weight:700;letter-spacing:-1px;color:#fff;margin-bottom:16px;line-height:1.2">Every traveler is a delivery opportunity.</h2>
+        <p style="color:rgba(255,255,255,0.55);font-size:15px;line-height:1.7">Join thousands of senders and travelers already using TripSend.</p>
       </div>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;padding:48px">
       <div style="width:100%;max-width:420px">
-        <div class="tab-row" id="auth-tabs">
+        <div class="tab-row">
           <button class="tab-btn" id="tab-login" onclick="switchAuthTab('login')">Log in</button>
           <button class="tab-btn active" id="tab-signup" onclick="switchAuthTab('signup')">Sign up</button>
         </div>
-
         <div id="alert-auth"></div>
-
-        <!-- LOGIN FORM -->
         <div id="form-login" style="display:none">
           <h2 style="font-size:28px;font-weight:700;letter-spacing:-1px;margin-bottom:6px">Welcome back</h2>
           <p style="color:var(--muted);font-size:14px;margin-bottom:28px">Sign in to your TripSend account</p>
@@ -246,16 +227,13 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
           <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px;margin-top:8px" onclick="handleLogin()">Log In</button>
           <p style="text-align:center;margin-top:16px;font-size:14px;color:var(--muted)">No account? <span style="color:var(--ink);font-weight:600;cursor:pointer" onclick="switchAuthTab('signup')">Sign up free</span></p>
         </div>
-
-        <!-- SIGNUP FORM -->
         <div id="form-signup">
           <h2 style="font-size:28px;font-weight:700;letter-spacing:-1px;margin-bottom:6px">Create your account</h2>
           <p style="color:var(--muted);font-size:14px;margin-bottom:28px">Free to join. No credit card required.</p>
           <div class="input-wrap"><label>Full Name</label><input class="input-field" type="text" id="signup-name" placeholder="Your full name"/></div>
           <div class="input-wrap"><label>Email</label><input class="input-field" type="email" id="signup-email" placeholder="you@email.com"/></div>
           <div class="input-wrap"><label>Password</label><input class="input-field" type="password" id="signup-password" placeholder="Min. 8 characters"/></div>
-          <div class="input-wrap">
-            <label>I want to</label>
+          <div class="input-wrap"><label>I want to</label>
             <select class="input-field" id="signup-role">
               <option value="sender">Send packages</option>
               <option value="traveler">Carry packages & earn</option>
@@ -264,156 +242,110 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
           </div>
           <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px;margin-top:8px" onclick="handleSignup()">Create Account Free</button>
           <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--muted)">Already have an account? <span style="color:var(--ink);font-weight:600;cursor:pointer" onclick="switchAuthTab('login')">Log in</span></p>
-          <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted)">By signing up, you agree to our Terms & Privacy Policy.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== DASHBOARD ===================== -->
+<!-- DASHBOARD -->
 <div id="page-dashboard" class="page">
-  <div class="section">
-    <div class="container">
-      <div id="dashboard-content">
-        <div style="text-align:center;padding:40px"><div class="spinner"></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section"><div class="container"><div id="dashboard-content"><div style="text-align:center;padding:40px"><div class="spinner"></div></div></div></div></div>
 </div>
 
-<!-- ===================== TRIPS BROWSE ===================== -->
+<!-- TRIPS -->
 <div id="page-trips" class="page">
-  <div class="section">
-    <div class="container">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px">
-        <div>
-          <div class="tag">Available Now</div>
-          <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px">Browse Trips</h2>
-        </div>
-        <button class="btn btn-dark" onclick="navigate('post-trip')">+ Post a Trip</button>
-      </div>
-
-      <!-- Filters -->
-      <div style="background:var(--white);border-radius:16px;padding:20px 24px;margin-bottom:32px;display:flex;gap:16px;align-items:flex-end;border:1px solid var(--border)">
-        <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">From City</label><input class="input-field" id="filter-from" placeholder="e.g. Lagos" style="margin:0"/></div>
-        <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">To City</label><input class="input-field" id="filter-to" placeholder="e.g. London" style="margin:0"/></div>
-        <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">Date</label><input class="input-field" id="filter-date" type="date" style="margin:0"/></div>
-        <button class="btn btn-amber" onclick="loadTrips()">Search</button>
-        <button class="btn btn-outline" onclick="clearFilters()">Clear</button>
-      </div>
-
-      <div id="trips-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-        <div style="text-align:center;padding:40px;grid-column:1/-1"><div class="spinner"></div></div>
-      </div>
+  <div class="section"><div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px">
+      <div><div class="tag">Available Now</div><h2 style="font-size:36px;font-weight:700;letter-spacing:-1px">Browse Trips</h2></div>
+      <button class="btn btn-dark" onclick="navigate('post-trip')">+ Post a Trip</button>
     </div>
-  </div>
+    <div style="background:var(--white);border-radius:16px;padding:20px 24px;margin-bottom:32px;display:flex;gap:16px;align-items:flex-end;border:1px solid var(--border)">
+      <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">From City</label><input class="input-field" id="filter-from" placeholder="e.g. Lagos" style="margin:0"/></div>
+      <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">To City</label><input class="input-field" id="filter-to" placeholder="e.g. London" style="margin:0"/></div>
+      <div style="flex:1"><label style="font-size:12px;font-weight:600;color:var(--slate);display:block;margin-bottom:6px">Date</label><input class="input-field" id="filter-date" type="date" style="margin:0"/></div>
+      <button class="btn btn-amber" onclick="loadTrips()">Search</button>
+      <button class="btn btn-outline" onclick="clearFilters()">Clear</button>
+    </div>
+    <div id="trips-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px"><div style="text-align:center;padding:40px;grid-column:1/-1"><div class="spinner"></div></div></div>
+  </div></div>
 </div>
 
-<!-- ===================== POST TRIP ===================== -->
+<!-- POST TRIP -->
 <div id="page-post-trip" class="page">
-  <div class="section">
-    <div class="container" style="max-width:640px">
-      <div class="tag">For Travelers</div>
-      <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:8px">Post a Trip</h2>
-      <p style="color:var(--muted);margin-bottom:36px">Share your upcoming trip and start receiving package requests.</p>
-
-      <div id="alert-post-trip"></div>
-
-      <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
-        <div class="grid-2">
-          <div class="input-wrap"><label>From City</label><input class="input-field" id="trip-from-city" placeholder="e.g. Lagos"/></div>
-          <div class="input-wrap"><label>From Country</label><input class="input-field" id="trip-from-country" placeholder="e.g. Nigeria"/></div>
-        </div>
-        <div class="grid-2">
-          <div class="input-wrap"><label>To City</label><input class="input-field" id="trip-to-city" placeholder="e.g. London"/></div>
-          <div class="input-wrap"><label>To Country</label><input class="input-field" id="trip-to-country" placeholder="e.g. United Kingdom"/></div>
-        </div>
-        <div class="grid-2">
-          <div class="input-wrap"><label>Travel Date</label><input class="input-field" type="date" id="trip-date"/></div>
-          <div class="input-wrap"><label>Available Space (kg)</label><input class="input-field" type="number" id="trip-space" placeholder="e.g. 5" min="0.5" step="0.5"/></div>
-        </div>
-        <div class="input-wrap"><label>Suggested Price (USD)</label><input class="input-field" type="number" id="trip-price" placeholder="e.g. 25" min="1"/></div>
-        <div class="input-wrap"><label>Description (optional)</label><textarea class="input-field" id="trip-desc" rows="3" placeholder="Any notes — package restrictions, pickup preferences, etc." style="resize:vertical"></textarea></div>
-        <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px" onclick="handlePostTrip()">Post Trip →</button>
+  <div class="section"><div class="container" style="max-width:640px">
+    <div class="tag">For Travelers</div>
+    <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:8px">Post a Trip</h2>
+    <p style="color:var(--muted);margin-bottom:36px">Share your upcoming trip and start receiving package requests.</p>
+    <div id="alert-post-trip"></div>
+    <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
+      <div class="grid-2">
+        <div class="input-wrap"><label>From City</label><input class="input-field" id="trip-from-city" placeholder="e.g. Lagos"/></div>
+        <div class="input-wrap"><label>From Country</label><input class="input-field" id="trip-from-country" placeholder="e.g. Nigeria"/></div>
       </div>
+      <div class="grid-2">
+        <div class="input-wrap"><label>To City</label><input class="input-field" id="trip-to-city" placeholder="e.g. London"/></div>
+        <div class="input-wrap"><label>To Country</label><input class="input-field" id="trip-to-country" placeholder="e.g. United Kingdom"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="input-wrap"><label>Travel Date</label><input class="input-field" type="date" id="trip-date"/></div>
+        <div class="input-wrap"><label>Available Space (kg)</label><input class="input-field" type="number" id="trip-space" placeholder="e.g. 5" min="0.5" step="0.5"/></div>
+      </div>
+      <div class="input-wrap"><label>Suggested Price (USD)</label><input class="input-field" type="number" id="trip-price" placeholder="e.g. 25" min="1"/></div>
+      <div class="input-wrap"><label>Description (optional)</label><textarea class="input-field" id="trip-desc" rows="3" placeholder="Any notes — package restrictions, pickup preferences, etc." style="resize:vertical"></textarea></div>
+      <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px" onclick="handlePostTrip()">Post Trip →</button>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ===================== TRIP DETAIL ===================== -->
+<!-- TRIP DETAIL -->
 <div id="page-trip-detail" class="page">
-  <div class="section">
-    <div class="container" style="max-width:700px">
-      <button class="btn btn-outline btn-sm" style="margin-bottom:24px" onclick="navigate('trips')">← Back to Trips</button>
-      <div id="trip-detail-content">
-        <div style="text-align:center;padding:40px"><div class="spinner"></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section"><div class="container" style="max-width:700px">
+    <button class="btn btn-outline btn-sm" style="margin-bottom:24px" onclick="navigate('trips')">← Back to Trips</button>
+    <div id="trip-detail-content"><div style="text-align:center;padding:40px"><div class="spinner"></div></div></div>
+  </div></div>
 </div>
 
-<!-- ===================== BOOKINGS ===================== -->
+<!-- BOOKINGS -->
 <div id="page-bookings" class="page">
-  <div class="section">
-    <div class="container">
-      <div class="tag">My Activity</div>
-      <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:32px">My Bookings</h2>
-      <div id="bookings-list">
-        <div style="text-align:center;padding:40px"><div class="spinner"></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section"><div class="container">
+    <div class="tag">My Activity</div>
+    <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:32px">My Bookings</h2>
+    <div id="bookings-list"><div style="text-align:center;padding:40px"><div class="spinner"></div></div></div>
+  </div></div>
 </div>
 
-<!-- ===================== BOOKING DETAIL / CHAT ===================== -->
+<!-- BOOKING DETAIL -->
 <div id="page-booking-detail" class="page">
-  <div class="section">
-    <div class="container">
-      <button class="btn btn-outline btn-sm" style="margin-bottom:24px" onclick="navigate('bookings')">← Back to Bookings</button>
-      <div id="booking-detail-content">
-        <div style="text-align:center;padding:40px"><div class="spinner"></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section"><div class="container">
+    <button class="btn btn-outline btn-sm" style="margin-bottom:24px" onclick="navigate('bookings')">← Back to Bookings</button>
+    <div id="booking-detail-content"><div style="text-align:center;padding:40px"><div class="spinner"></div></div></div>
+  </div></div>
 </div>
 
-<!-- ===================== SETUP PAGE ===================== -->
+<!-- SETUP -->
 <div id="page-setup" class="page">
-  <div class="section">
-    <div class="container" style="max-width:680px">
-      <div style="text-align:center;margin-bottom:48px">
-        <div style="font-size:48px;margin-bottom:16px">⚙️</div>
-        <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:10px">Connect Your Backend</h2>
-        <p style="color:var(--muted);font-size:16px;line-height:1.7">Add your Supabase credentials to activate the full app. <strong>This page is only visible to admins.</strong></p>
-      </div>
-      <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
-        <div class="input-wrap">
-          <label>Supabase Project URL</label>
-          <input class="input-field" id="setup-supabase-url" placeholder="https://xxxxxxxxxxxx.supabase.co"/>
-        </div>
-        <div class="input-wrap">
-          <label>Supabase Anon Key</label>
-          <input class="input-field" id="setup-supabase-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."/>
-        </div>
-        <div style="background:#FFF3CD;border-radius:12px;padding:14px 16px;font-size:13px;color:#856404;margin-bottom:20px">
-          💡 These are saved in your browser only. For production, add them as environment variables in Vercel.
-        </div>
-        <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px" onclick="saveSetup()">Save & Connect</button>
-      </div>
-
-      <div style="margin-top:32px;background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
-        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px">📋 Supabase SQL Setup</h3>
-        <p style="color:var(--muted);font-size:14px;margin-bottom:16px">Run this SQL in your Supabase SQL Editor to create all required tables:</p>
-        <div id="sql-block" style="background:#0D0D0D;color:#E8A020;font-family:monospace;font-size:12px;padding:20px;border-radius:12px;line-height:1.8;overflow-x:auto;white-space:pre"></div>
-        <button class="btn btn-outline btn-sm" style="margin-top:12px" onclick="copySql()">📋 Copy SQL</button>
-      </div>
+  <div class="section"><div class="container" style="max-width:680px">
+    <div style="text-align:center;margin-bottom:48px">
+      <div style="font-size:48px;margin-bottom:16px">⚙️</div>
+      <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px;margin-bottom:10px">Connect Supabase</h2>
+      <p style="color:var(--muted);font-size:16px;line-height:1.7">Paste your Supabase credentials below to activate the full app.</p>
     </div>
-  </div>
+    <div id="alert-setup"></div>
+    <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border);margin-bottom:24px">
+      <div class="input-wrap"><label>Supabase Project URL</label><input class="input-field" id="setup-url" placeholder="https://xxxxxxxxxxxx.supabase.co"/></div>
+      <div class="input-wrap"><label>Supabase Anon Key</label><input class="input-field" id="setup-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."/></div>
+      <div style="background:#FFF3CD;border-radius:12px;padding:14px 16px;font-size:13px;color:#856404;margin-bottom:20px">💡 Saved in your browser. For production, add as environment variables in Vercel.</div>
+      <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px" onclick="saveSetup()">Save & Connect →</button>
+    </div>
+    <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Where to find your credentials</h3>
+      <p style="color:var(--muted);font-size:14px;line-height:1.7">Go to <strong>supabase.com</strong> → your project → <strong>Settings</strong> (gear icon, bottom left) → <strong>API</strong> → copy <strong>Project URL</strong> and <strong>anon/public</strong> key.</p>
+    </div>
+  </div></div>
 </div>
 
 <!-- MODALS -->
-<!-- Book Package Modal -->
 <div class="modal-overlay" id="modal-book">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('book')">×</button>
@@ -422,11 +354,10 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
     <div id="alert-book"></div>
     <div class="input-wrap"><label>Package Description</label><textarea class="input-field" id="book-desc" rows="3" placeholder="e.g. Clothes for my sister, no liquids" style="resize:vertical"></textarea></div>
     <div class="input-wrap"><label>Estimated Weight (kg)</label><input class="input-field" type="number" id="book-weight" placeholder="e.g. 2.5" min="0.1" step="0.1"/></div>
-    <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px;margin-top:8px" onclick="handleBooking()">Send Request & Start Chat</button>
+    <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;font-size:15px;margin-top:8px" onclick="handleBooking()">Send Request & Start Chat →</button>
   </div>
 </div>
 
-<!-- Pickup Contact Modal -->
 <div class="modal-overlay" id="modal-pickup">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('pickup')">×</button>
@@ -441,363 +372,189 @@ input,textarea,select{font-family:'DM Sans',sans-serif}
 </div>
 
 <script>
-// =================== CONFIG ===================
-let SUPABASE_URL = localStorage.getItem('ts_supabase_url') || '';
-let SUPABASE_KEY = localStorage.getItem('ts_supabase_key') || '';
-let supabase = null;
+// ========== STATE ==========
+let SUPA_URL = localStorage.getItem('ts_url') || '';
+let SUPA_KEY = localStorage.getItem('ts_key') || '';
+let db = null;
 let currentUser = null;
 let currentProfile = null;
 let currentTripId = null;
 let currentBookingId = null;
-let chatSubscription = null;
+let chatSub = null;
 
-const SQL_SCHEMA = `-- TripSend Database Schema
--- Run this in your Supabase SQL Editor
-
-create extension if not exists "uuid-ossp";
-
--- Profiles (extends auth.users)
-create table public.profiles (
-  id uuid references auth.users on delete cascade primary key,
-  email text,
-  full_name text,
-  role text default 'sender',
-  avatar_url text,
-  rating numeric default 5.0,
-  total_deliveries integer default 0,
-  stripe_account_id text,
-  created_at timestamptz default now()
-);
-
-alter table public.profiles enable row level security;
-create policy "Public profiles readable" on public.profiles for select using (true);
-create policy "Users update own profile" on public.profiles for update using (auth.uid() = id);
-
--- Trips
-create table public.trips (
-  id uuid default uuid_generate_v4() primary key,
-  traveler_id uuid references public.profiles(id) on delete cascade,
-  from_city text not null,
-  to_city text not null,
-  from_country text,
-  to_country text,
-  travel_date date not null,
-  available_space_kg numeric not null,
-  price_suggestion numeric not null,
-  description text,
-  status text default 'active',
-  created_at timestamptz default now()
-);
-
-alter table public.trips enable row level security;
-create policy "Active trips readable by all" on public.trips for select using (true);
-create policy "Travelers insert trips" on public.trips for insert with check (auth.uid() = traveler_id);
-create policy "Travelers update own trips" on public.trips for update using (auth.uid() = traveler_id);
-
--- Bookings
-create table public.bookings (
-  id uuid default uuid_generate_v4() primary key,
-  trip_id uuid references public.trips(id) on delete cascade,
-  sender_id uuid references public.profiles(id),
-  traveler_id uuid references public.profiles(id),
-  package_description text,
-  weight_kg numeric,
-  agreed_price numeric,
-  status text default 'negotiating',
-  pickup_contact_name text,
-  pickup_contact_phone text,
-  pickup_contact_address text,
-  payment_intent_id text,
-  traveler_marked_delivered boolean default false,
-  sender_approved boolean default false,
-  created_at timestamptz default now()
-);
-
-alter table public.bookings enable row level security;
-create policy "Booking parties can read" on public.bookings for select using (auth.uid() = sender_id or auth.uid() = traveler_id);
-create policy "Senders create bookings" on public.bookings for insert with check (auth.uid() = sender_id);
-create policy "Booking parties can update" on public.bookings for update using (auth.uid() = sender_id or auth.uid() = traveler_id);
-
--- Messages
-create table public.messages (
-  id uuid default uuid_generate_v4() primary key,
-  booking_id uuid references public.bookings(id) on delete cascade,
-  sender_id uuid references public.profiles(id),
-  content text not null,
-  message_type text default 'text',
-  proposed_price numeric,
-  created_at timestamptz default now()
-);
-
-alter table public.messages enable row level security;
-create policy "Booking parties can read messages" on public.messages for select using (
-  exists (select 1 from public.bookings b where b.id = booking_id and (b.sender_id = auth.uid() or b.traveler_id = auth.uid()))
-);
-create policy "Booking parties can send messages" on public.messages for insert with check (
-  exists (select 1 from public.bookings b where b.id = booking_id and (b.sender_id = auth.uid() or b.traveler_id = auth.uid()))
-);
-
--- Auto-create profile on signup
-create or replace function public.handle_new_user()
-returns trigger language plpgsql security definer as
-$func$
-begin
-  insert into public.profiles (id, email, full_name, role)
-  values (
-    new.id,
-    new.email,
-    coalesce(new.raw_user_meta_data->>'full_name', 'User'),
-    coalesce(new.raw_user_meta_data->>'role', 'sender')
-  );
-  return new;
-end;
-$func$;
-
-create trigger on_auth_user_created
-  after insert on auth.users
-  for each row execute procedure public.handle_new_user();
-
--- Enable realtime for messages
-alter publication supabase_realtime add table messages;`;
-
-// =================== INIT ===================
-function initSupabase() {
-  if (SUPABASE_URL && SUPABASE_KEY) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// ========== INIT ==========
+function initDB() {
+  if (SUPA_URL && SUPA_KEY) {
+    db = window.supabase.createClient(SUPA_URL, SUPA_KEY);
     return true;
   }
   return false;
 }
 
 async function checkAuth() {
-  if (!supabase) return;
-  const { data: { user } } = await supabase.auth.getUser();
+  if (!db) return;
+  const { data: { user } } = await db.auth.getUser();
   if (user) {
     currentUser = user;
-    const { data } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+    const { data } = await db.from('profiles').select('*').eq('id', user.id).single();
     currentProfile = data;
     updateNav(true);
-  } else {
-    updateNav(false);
   }
 }
 
 function updateNav(loggedIn) {
-  const navRight = document.getElementById('nav-right');
-  const navLinks = document.getElementById('nav-links');
+  const nr = document.getElementById('nav-right');
+  const nl = document.getElementById('nav-links');
   if (loggedIn && currentProfile) {
-    navRight.innerHTML = `
-      <span style="font-size:14px;color:var(--muted)">Hi, ${currentProfile.full_name?.split(' ')[0]}</span>
+    nr.innerHTML = `<span style="font-size:14px;color:var(--muted)">Hi, ${currentProfile.full_name?.split(' ')[0]}</span>
       <button class="btn btn-outline btn-sm" onclick="navigate('dashboard')">Dashboard</button>
-      <button class="btn btn-outline btn-sm" onclick="handleLogout()">Log out</button>
-    `;
-    navLinks.innerHTML = `
-      <span onclick="navigate('trips')">Browse Trips</span>
+      <button class="btn btn-outline btn-sm" onclick="handleLogout()">Log out</button>`;
+    nl.innerHTML = `<span onclick="navigate('trips')">Browse Trips</span>
       <span onclick="navigate('bookings')">My Bookings</span>
-      ${currentProfile.role !== 'sender' ? '<span onclick="navigate(\'post-trip\')">Post Trip</span>' : ''}
-    `;
+      <span onclick="navigate('post-trip')">Post Trip</span>`;
   } else {
-    navRight.innerHTML = `
-      <button class="btn btn-outline btn-sm" onclick="navigate('auth')">Log in</button>
-      <button class="btn btn-dark btn-sm" onclick="navigate('auth',{mode:'signup'})">Sign Up Free</button>
-    `;
-    navLinks.innerHTML = `
-      <span onclick="navigate('trips')">Browse Trips</span>
-      <span onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</span>
-    `;
+    nr.innerHTML = `<button class="btn btn-outline btn-sm" onclick="navigate('auth')">Log in</button>
+      <button class="btn btn-dark btn-sm" onclick="navigate('auth',{mode:'signup'})">Sign Up Free</button>`;
+    nl.innerHTML = `<span onclick="navigate('trips')">Browse Trips</span>
+      <span onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</span>`;
   }
 }
 
-// =================== NAVIGATION ===================
-function navigate(page, params = {}) {
+// ========== NAVIGATION ==========
+function navigate(page, params={}) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const target = document.getElementById('page-' + page);
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo(0, 0);
-  }
+  const el = document.getElementById('page-' + page);
+  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
   if (page === 'trips') loadTrips();
   if (page === 'dashboard') loadDashboard();
   if (page === 'bookings') loadBookings();
-  if (page === 'post-trip' && !currentUser) { navigate('auth', {mode:'signup',role:'traveler'}); return; }
-  if (page === 'auth') {
-    const mode = params.mode || 'signup';
-    switchAuthTab(mode);
-    if (params.role) document.getElementById('signup-role').value = params.role;
-  }
-  if (page === 'setup') {
-    document.getElementById('setup-supabase-url').value = SUPABASE_URL;
-    document.getElementById('setup-supabase-key').value = SUPABASE_KEY;
-    document.getElementById('sql-block').textContent = SQL_SCHEMA;
-  }
+  if (page === 'auth') { switchAuthTab(params.mode||'signup'); if (params.role) document.getElementById('signup-role').value = params.role; }
+  if (page === 'setup') { document.getElementById('setup-url').value = SUPA_URL; document.getElementById('setup-key').value = SUPA_KEY; }
+  if (page === 'post-trip' && !currentUser) { navigate('auth',{mode:'signup',role:'traveler'}); }
 }
 
-// =================== AUTH ===================
+// ========== AUTH ==========
 function switchAuthTab(tab) {
-  document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
-  document.getElementById('form-signup').style.display = tab === 'signup' ? 'block' : 'none';
-  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
-  document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+  document.getElementById('form-login').style.display = tab==='login'?'block':'none';
+  document.getElementById('form-signup').style.display = tab==='signup'?'block':'none';
+  document.getElementById('tab-login').classList.toggle('active', tab==='login');
+  document.getElementById('tab-signup').classList.toggle('active', tab==='signup');
 }
 
 async function handleLogin() {
-  if (!supabase) { showAlert('auth', 'Please connect Supabase first. <span style="cursor:pointer;text-decoration:underline" onclick="navigate(\'setup\')">Go to Setup →</span>', 'error'); return; }
+  if (!db) { showAlert('auth','Please connect Supabase first — scroll to footer and click Setup.','error'); return; }
   const email = document.getElementById('login-email').value;
   const pass = document.getElementById('login-password').value;
-  if (!email || !pass) { showAlert('auth', 'Please fill in all fields.', 'error'); return; }
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password: pass });
-  if (error) { showAlert('auth', error.message, 'error'); return; }
+  if (!email||!pass) { showAlert('auth','Please fill in all fields.','error'); return; }
+  const { data, error } = await db.auth.signInWithPassword({ email, password: pass });
+  if (error) { showAlert('auth', error.message,'error'); return; }
   currentUser = data.user;
-  const { data: profile } = await supabase.from('profiles').select('*').eq('id', data.user.id).single();
+  const { data: profile } = await db.from('profiles').select('*').eq('id', data.user.id).single();
   currentProfile = profile;
   updateNav(true);
   navigate('dashboard');
 }
 
 async function handleSignup() {
-  if (!supabase) { showAlert('auth', 'Please connect Supabase first. <span style="cursor:pointer;text-decoration:underline" onclick="navigate(\'setup\')">Go to Setup →</span>', 'error'); return; }
+  if (!db) { showAlert('auth','Please connect Supabase first — scroll to footer and click Setup.','error'); return; }
   const name = document.getElementById('signup-name').value;
   const email = document.getElementById('signup-email').value;
   const pass = document.getElementById('signup-password').value;
   const role = document.getElementById('signup-role').value;
-  if (!name || !email || !pass) { showAlert('auth', 'Please fill in all fields.', 'error'); return; }
-  if (pass.length < 8) { showAlert('auth', 'Password must be at least 8 characters.', 'error'); return; }
-  const { data, error } = await supabase.auth.signUp({ email, password: pass, options: { data: { full_name: name, role } } });
-  if (error) { showAlert('auth', error.message, 'error'); return; }
-  showAlert('auth', '✅ Account created! Check your email to confirm, then log in.', 'success');
+  if (!name||!email||!pass) { showAlert('auth','Please fill in all fields.','error'); return; }
+  if (pass.length < 8) { showAlert('auth','Password must be at least 8 characters.','error'); return; }
+  const { error } = await db.auth.signUp({ email, password: pass, options: { data: { full_name: name, role } } });
+  if (error) { showAlert('auth', error.message,'error'); return; }
+  showAlert('auth','✅ Account created! Check your email to confirm, then log in.','success');
   setTimeout(() => switchAuthTab('login'), 2000);
 }
 
 async function handleLogout() {
-  if (supabase) await supabase.auth.signOut();
+  if (db) await db.auth.signOut();
   currentUser = null; currentProfile = null;
-  updateNav(false);
-  navigate('home');
+  updateNav(false); navigate('home');
 }
 
-// =================== TRIPS ===================
+// ========== TRIPS ==========
 async function loadTrips() {
-  const listEl = document.getElementById('trips-list');
-  if (!supabase) {
-    listEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px">
+  const el = document.getElementById('trips-list');
+  if (!db) {
+    el.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px">
       <div style="font-size:40px;margin-bottom:16px">⚙️</div>
-      <h3 style="font-family:Syne,sans-serif;margin-bottom:8px">Backend Not Connected</h3>
-      <p style="color:var(--muted);margin-bottom:20px">Connect Supabase to see real trips.</p>
-      <button class="btn btn-dark" onclick="navigate('setup')">Connect Supabase →</button>
-    </div>`;
-    return;
+      <h3 style="font-family:Syne,sans-serif;margin-bottom:8px">Connect Supabase to see trips</h3>
+      <p style="color:var(--muted);margin-bottom:20px">Go to the footer → click Setup → add your credentials.</p>
+      <button class="btn btn-dark" onclick="navigate('setup')">Go to Setup →</button>
+    </div>`; return;
   }
-  listEl.innerHTML = '<div style="text-align:center;padding:40px;grid-column:1/-1"><div class="spinner"></div></div>';
-
-  let query = supabase.from('trips').select('*, traveler:profiles(*)').eq('status', 'active').order('created_at', { ascending: false });
+  el.innerHTML = '<div style="text-align:center;padding:40px;grid-column:1/-1"><div class="spinner"></div></div>';
+  let q = db.from('trips').select('*, traveler:profiles(*)').eq('status','active').order('created_at',{ascending:false});
   const from = document.getElementById('filter-from')?.value;
   const to = document.getElementById('filter-to')?.value;
   const date = document.getElementById('filter-date')?.value;
-  if (from) query = query.ilike('from_city', `%${from}%`);
-  if (to) query = query.ilike('to_city', `%${to}%`);
-  if (date) query = query.eq('travel_date', date);
-
-  const { data, error } = await query;
-  if (error || !data?.length) {
-    listEl.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">✈</div><h3>No trips found</h3><p>Try adjusting your filters or check back later.</p></div>`;
-    return;
-  }
-
-  listEl.innerHTML = data.map(trip => `
+  if (from) q = q.ilike('from_city',`%${from}%`);
+  if (to) q = q.ilike('to_city',`%${to}%`);
+  if (date) q = q.eq('travel_date', date);
+  const { data, error } = await q;
+  if (!data?.length) { el.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">✈</div><h3>No trips found</h3><p>Try different filters or check back later.</p></div>`; return; }
+  el.innerHTML = data.map(trip => `
     <div class="card fade-in" style="cursor:pointer" onclick="openTripDetail('${trip.id}')">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
         <div style="display:flex;align-items:center;gap:10px">
-          <div class="avatar">${trip.traveler?.full_name?.[0] || '?'}</div>
-          <div>
-            <div style="font-weight:600;font-size:14px">${trip.traveler?.full_name || 'Traveler'}</div>
-            <div style="font-size:12px;color:var(--muted)">⭐ ${trip.traveler?.rating?.toFixed(1) || '5.0'} · ${trip.traveler?.total_deliveries || 0} trips</div>
-          </div>
+          <div class="avatar">${trip.traveler?.full_name?.[0]||'?'}</div>
+          <div><div style="font-weight:600;font-size:14px">${trip.traveler?.full_name||'Traveler'}</div><div style="font-size:12px;color:var(--muted)">⭐ ${trip.traveler?.rating?.toFixed(1)||'5.0'} · ${trip.traveler?.total_deliveries||0} trips</div></div>
         </div>
         <span class="status-badge status-active">Active</span>
       </div>
       <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:14px;padding:14px;background:var(--cream);border-radius:12px">
         <span>${trip.from_city}</span>
         <div style="flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--amber) 0,var(--amber) 6px,transparent 6px,transparent 12px)"></div>
-        <span style="font-size:18px">✈</span>
+        <span>✈</span>
         <div style="flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--amber) 0,var(--amber) 6px,transparent 6px,transparent 12px)"></div>
         <span>${trip.to_city}</span>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">
-        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:2px">Date</div>
-          <div style="font-size:13px;font-weight:600">${new Date(trip.travel_date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div>
-        </div>
-        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:2px">Space</div>
-          <div style="font-size:13px;font-weight:600">${trip.available_space_kg}kg</div>
-        </div>
-        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:2px">From</div>
-          <div style="font-size:13px;font-weight:600;color:var(--amber)">$${trip.price_suggestion}</div>
-        </div>
+        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">Date</div><div style="font-size:13px;font-weight:600">${new Date(trip.travel_date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div></div>
+        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">Space</div><div style="font-size:13px;font-weight:600">${trip.available_space_kg}kg</div></div>
+        <div style="text-align:center;padding:10px;background:var(--cream);border-radius:10px"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">From</div><div style="font-size:13px;font-weight:600;color:var(--amber)">$${trip.price_suggestion}</div></div>
       </div>
-      ${trip.description ? `<p style="font-size:13px;color:var(--muted);margin-bottom:14px">${trip.description}</p>` : ''}
       <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="event.stopPropagation();openBookModal('${trip.id}')">Request This Trip</button>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function clearFilters() {
-  document.getElementById('filter-from').value = '';
-  document.getElementById('filter-to').value = '';
-  document.getElementById('filter-date').value = '';
+  ['filter-from','filter-to','filter-date'].forEach(id => document.getElementById(id).value='');
   loadTrips();
 }
 
 async function openTripDetail(tripId) {
-  currentTripId = tripId;
-  navigate('trip-detail');
+  currentTripId = tripId; navigate('trip-detail');
   const el = document.getElementById('trip-detail-content');
-  if (!supabase) { el.innerHTML = '<p>Backend not connected.</p>'; return; }
-  const { data: trip } = await supabase.from('trips').select('*, traveler:profiles(*)').eq('id', tripId).single();
-  if (!trip) { el.innerHTML = '<p>Trip not found.</p>'; return; }
+  const { data: trip } = await db.from('trips').select('*, traveler:profiles(*)').eq('id',tripId).single();
+  if (!trip) { el.innerHTML='<p>Trip not found.</p>'; return; }
   el.innerHTML = `
     <div style="background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px">
-        <div class="avatar" style="width:56px;height:56px;font-size:22px">${trip.traveler?.full_name?.[0] || '?'}</div>
-        <div>
-          <div style="font-family:Syne,sans-serif;font-size:20px;font-weight:700">${trip.traveler?.full_name || 'Traveler'}</div>
-          <div style="color:var(--muted);font-size:14px">⭐ ${trip.traveler?.rating?.toFixed(1) || '5.0'} · ${trip.traveler?.total_deliveries || 0} successful deliveries</div>
-        </div>
+        <div class="avatar" style="width:56px;height:56px;font-size:22px">${trip.traveler?.full_name?.[0]||'?'}</div>
+        <div><div style="font-family:Syne,sans-serif;font-size:20px;font-weight:700">${trip.traveler?.full_name||'Traveler'}</div><div style="color:var(--muted);font-size:14px">⭐ ${trip.traveler?.rating?.toFixed(1)||'5.0'} · ${trip.traveler?.total_deliveries||0} successful deliveries</div></div>
       </div>
-      <div style="display:flex;align-items:center;gap:14px;font-family:Syne,sans-serif;font-size:24px;font-weight:700;margin-bottom:24px;padding:20px;background:var(--cream);border-radius:16px">
-        <span>${trip.from_city}, ${trip.from_country || ''}</span>
-        <div style="flex:1;text-align:center;font-size:28px">✈</div>
-        <span>${trip.to_city}, ${trip.to_country || ''}</span>
+      <div style="display:flex;align-items:center;gap:14px;font-family:Syne,sans-serif;font-size:22px;font-weight:700;margin-bottom:24px;padding:20px;background:var(--cream);border-radius:16px">
+        <span>${trip.from_city}, ${trip.from_country||''}</span><div style="flex:1;text-align:center">✈</div><span>${trip.to_city}, ${trip.to_country||''}</span>
       </div>
       <div class="grid-3" style="margin-bottom:24px">
-        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px">
-          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Travel Date</div>
-          <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:700">${new Date(trip.travel_date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div>
-        </div>
-        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px">
-          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Space Available</div>
-          <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:700">${trip.available_space_kg} kg</div>
-        </div>
-        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px">
-          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Suggested Price</div>
-          <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:700;color:var(--amber)">$${trip.price_suggestion}</div>
-        </div>
+        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px"><div style="font-size:12px;color:var(--muted);margin-bottom:4px">Travel Date</div><div style="font-family:Syne,sans-serif;font-size:16px;font-weight:700">${new Date(trip.travel_date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div></div>
+        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px"><div style="font-size:12px;color:var(--muted);margin-bottom:4px">Space</div><div style="font-family:Syne,sans-serif;font-size:16px;font-weight:700">${trip.available_space_kg} kg</div></div>
+        <div style="text-align:center;padding:16px;background:var(--cream);border-radius:14px"><div style="font-size:12px;color:var(--muted);margin-bottom:4px">Suggested Price</div><div style="font-family:Syne,sans-serif;font-size:16px;font-weight:700;color:var(--amber)">$${trip.price_suggestion}</div></div>
       </div>
-      ${trip.description ? `<div style="margin-bottom:24px;padding:16px;background:var(--cream);border-radius:14px"><div style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px">Notes from traveler</div><p style="font-size:14px;color:var(--muted);line-height:1.6">${trip.description}</p></div>` : ''}
-      <div style="background:#E8F5E9;border-radius:14px;padding:16px;margin-bottom:24px">
-        <div style="font-weight:600;font-size:14px;color:#2E7D32;margin-bottom:4px">🔐 Escrow Protected</div>
-        <p style="font-size:13px;color:#388E3C;line-height:1.5">Your payment is held securely until delivery is confirmed by both parties.</p>
-      </div>
+      ${trip.description?`<div style="margin-bottom:24px;padding:16px;background:var(--cream);border-radius:14px"><div style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px">Notes from traveler</div><p style="font-size:14px;color:var(--muted);line-height:1.6">${trip.description}</p></div>`:''}
+      <div style="background:#E8F5E9;border-radius:14px;padding:16px;margin-bottom:24px"><div style="font-weight:600;font-size:14px;color:#2E7D32;margin-bottom:4px">🔐 Escrow Protected</div><p style="font-size:13px;color:#388E3C;line-height:1.5">Your payment is held securely until delivery is confirmed by both parties.</p></div>
       <button class="btn btn-dark btn-lg" style="width:100%;justify-content:center" onclick="openBookModal('${trip.id}')">Request This Trip & Start Chat</button>
-    </div>
-  `;
+    </div>`;
 }
 
-// =================== POST TRIP ===================
+// ========== POST TRIP ==========
 async function handlePostTrip() {
   if (!currentUser) { navigate('auth'); return; }
-  if (!supabase) { showAlert('post-trip', 'Connect Supabase first.', 'error'); return; }
+  if (!db) { showAlert('post-trip','Connect Supabase first.','error'); return; }
   const data = {
     traveler_id: currentUser.id,
     from_city: document.getElementById('trip-from-city').value,
@@ -809,16 +566,14 @@ async function handlePostTrip() {
     price_suggestion: parseFloat(document.getElementById('trip-price').value),
     description: document.getElementById('trip-desc').value,
   };
-  if (!data.from_city || !data.to_city || !data.travel_date || !data.available_space_kg || !data.price_suggestion) {
-    showAlert('post-trip', 'Please fill in all required fields.', 'error'); return;
-  }
-  const { error } = await supabase.from('trips').insert(data);
-  if (error) { showAlert('post-trip', error.message, 'error'); return; }
-  showAlert('post-trip', '✅ Trip posted successfully!', 'success');
+  if (!data.from_city||!data.to_city||!data.travel_date||!data.available_space_kg||!data.price_suggestion) { showAlert('post-trip','Please fill in all required fields.','error'); return; }
+  const { error } = await db.from('trips').insert(data);
+  if (error) { showAlert('post-trip', error.message,'error'); return; }
+  showAlert('post-trip','✅ Trip posted! Redirecting...','success');
   setTimeout(() => navigate('trips'), 1500);
 }
 
-// =================== BOOKING ===================
+// ========== BOOKING ==========
 function openBookModal(tripId) {
   if (!currentUser) { navigate('auth'); return; }
   currentTripId = tripId;
@@ -826,182 +581,99 @@ function openBookModal(tripId) {
 }
 
 async function handleBooking() {
-  if (!supabase) return;
   const desc = document.getElementById('book-desc').value;
   const weight = parseFloat(document.getElementById('book-weight').value);
-  if (!desc || !weight) { showAlert('book', 'Please fill in all fields.', 'error'); return; }
-
-  const { data: trip } = await supabase.from('trips').select('traveler_id').eq('id', currentTripId).single();
-  if (!trip) { showAlert('book', 'Trip not found.', 'error'); return; }
-  if (trip.traveler_id === currentUser.id) { showAlert('book', "You can't book your own trip.", 'error'); return; }
-
-  const { data: booking, error } = await supabase.from('bookings').insert({
-    trip_id: currentTripId,
-    sender_id: currentUser.id,
-    traveler_id: trip.traveler_id,
-    package_description: desc,
-    weight_kg: weight,
-    status: 'negotiating'
-  }).select().single();
-
-  if (error) { showAlert('book', error.message, 'error'); return; }
-
-  // Send initial system message
-  await supabase.from('messages').insert({
-    booking_id: booking.id,
-    sender_id: currentUser.id,
-    content: `New booking request! Package: ${desc} (${weight}kg). Let's discuss price.`,
-    message_type: 'system'
-  });
-
+  if (!desc||!weight) { showAlert('book','Please fill in all fields.','error'); return; }
+  const { data: trip } = await db.from('trips').select('traveler_id').eq('id',currentTripId).single();
+  if (trip.traveler_id === currentUser.id) { showAlert('book',"You can't book your own trip.",'error'); return; }
+  const { data: booking, error } = await db.from('bookings').insert({ trip_id: currentTripId, sender_id: currentUser.id, traveler_id: trip.traveler_id, package_description: desc, weight_kg: weight, status: 'negotiating' }).select().single();
+  if (error) { showAlert('book', error.message,'error'); return; }
+  await db.from('messages').insert({ booking_id: booking.id, sender_id: currentUser.id, content: `New booking request! Package: ${desc} (${weight}kg). Let's discuss the price.`, message_type: 'system' });
   closeModal('book');
   openBookingDetail(booking.id);
 }
 
-// =================== DASHBOARD ===================
+// ========== DASHBOARD ==========
 async function loadDashboard() {
-  if (!currentUser || !supabase) return;
+  if (!currentUser||!db) return;
   const el = document.getElementById('dashboard-content');
-  const { data: bookings } = await supabase.from('bookings').select('*').or(`sender_id.eq.${currentUser.id},traveler_id.eq.${currentUser.id}`).order('created_at', { ascending: false }).limit(5);
-  const { data: myTrips } = await supabase.from('trips').select('*').eq('traveler_id', currentUser.id).eq('status', 'active');
-
+  const { data: bookings } = await db.from('bookings').select('*').or(`sender_id.eq.${currentUser.id},traveler_id.eq.${currentUser.id}`).order('created_at',{ascending:false});
+  const { data: myTrips } = await db.from('trips').select('*').eq('traveler_id',currentUser.id).eq('status','active');
   el.innerHTML = `
-    <div style="margin-bottom:36px">
-      <div class="tag">Welcome back</div>
-      <h2 style="font-size:36px;font-weight:700;letter-spacing:-1px">Hey, ${currentProfile?.full_name?.split(' ')[0] || 'there'} 👋</h2>
-    </div>
+    <div style="margin-bottom:36px"><div class="tag">Welcome back</div><h2 style="font-size:36px;font-weight:700;letter-spacing:-1px">Hey, ${currentProfile?.full_name?.split(' ')[0]||'there'} 👋</h2></div>
     <div class="grid-3" style="margin-bottom:40px">
-      <div style="background:var(--ink);color:#fff;border-radius:20px;padding:24px">
-        <div style="font-size:28px;margin-bottom:8px">📦</div>
-        <div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${bookings?.filter(b=>b.sender_id===currentUser.id).length||0}</div>
-        <div style="font-size:14px;opacity:0.6;margin-top:4px">Packages Sent</div>
-      </div>
-      <div style="background:var(--amber);border-radius:20px;padding:24px">
-        <div style="font-size:28px;margin-bottom:8px">✈</div>
-        <div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${myTrips?.length||0}</div>
-        <div style="font-size:14px;opacity:0.7;margin-top:4px">Active Trips</div>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:20px;padding:24px">
-        <div style="font-size:28px;margin-bottom:8px">⭐</div>
-        <div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${currentProfile?.rating?.toFixed(1)||'5.0'}</div>
-        <div style="font-size:14px;color:var(--muted);margin-top:4px">Your Rating</div>
-      </div>
+      <div style="background:var(--ink);color:#fff;border-radius:20px;padding:24px"><div style="font-size:28px;margin-bottom:8px">📦</div><div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${bookings?.filter(b=>b.sender_id===currentUser.id).length||0}</div><div style="font-size:14px;opacity:0.6;margin-top:4px">Packages Sent</div></div>
+      <div style="background:var(--amber);border-radius:20px;padding:24px"><div style="font-size:28px;margin-bottom:8px">✈</div><div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${myTrips?.length||0}</div><div style="font-size:14px;opacity:0.7;margin-top:4px">Active Trips</div></div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:20px;padding:24px"><div style="font-size:28px;margin-bottom:8px">⭐</div><div style="font-family:Syne,sans-serif;font-size:32px;font-weight:800">${currentProfile?.rating?.toFixed(1)||'5.0'}</div><div style="font-size:14px;color:var(--muted);margin-top:4px">Your Rating</div></div>
     </div>
     <div style="display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap">
       <button class="btn btn-dark" onclick="navigate('trips')">Browse Trips</button>
       <button class="btn btn-amber" onclick="navigate('post-trip')">Post a Trip</button>
       <button class="btn btn-outline" onclick="navigate('bookings')">View All Bookings</button>
     </div>
-    ${bookings?.length ? `
-    <h3 style="font-family:Syne,sans-serif;font-size:20px;font-weight:700;margin-bottom:16px">Recent Activity</h3>
-    ${bookings.slice(0,5).map(b=>`
-      <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--white);border-radius:14px;border:1px solid var(--border);margin-bottom:10px;cursor:pointer" onclick="openBookingDetail('${b.id}')">
-        <div style="font-size:22px">${b.sender_id===currentUser.id?'📦':'✈'}</div>
-        <div style="flex:1">
-          <div style="font-weight:600;font-size:14px">${b.package_description||'Package'}</div>
-          <div style="font-size:12px;color:var(--muted)">${new Date(b.created_at).toLocaleDateString()}</div>
-        </div>
-        <span class="status-badge status-${b.status}">${b.status.replace('_',' ')}</span>
-      </div>
-    `).join('')}` : `<div class="empty-state"><div class="empty-icon">🚀</div><h3>Get started!</h3><p>Browse trips to send a package, or post your upcoming trip.</p></div>`}
-  `;
+    ${bookings?.length?`<h3 style="font-family:Syne,sans-serif;font-size:20px;font-weight:700;margin-bottom:16px">Recent Activity</h3>${bookings.slice(0,5).map(b=>`<div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--white);border-radius:14px;border:1px solid var(--border);margin-bottom:10px;cursor:pointer" onclick="openBookingDetail('${b.id}')"><div style="font-size:22px">${b.sender_id===currentUser.id?'📦':'✈'}</div><div style="flex:1"><div style="font-weight:600;font-size:14px">${b.package_description||'Package'}</div><div style="font-size:12px;color:var(--muted)">${new Date(b.created_at).toLocaleDateString()}</div></div><span class="status-badge status-${b.status}">${b.status.replace(/_/g,' ')}</span></div>`).join('')}`:`<div class="empty-state"><div class="empty-icon">🚀</div><h3>Get started!</h3><p>Browse trips to send a package, or post your upcoming trip to start earning.</p></div>`}`;
 }
 
-// =================== BOOKINGS LIST ===================
+// ========== BOOKINGS LIST ==========
 async function loadBookings() {
-  if (!currentUser || !supabase) return;
+  if (!currentUser||!db) return;
   const el = document.getElementById('bookings-list');
-  const { data } = await supabase.from('bookings').select('*, trip:trips(*), sender:profiles!bookings_sender_id_fkey(*), traveler:profiles!bookings_traveler_id_fkey(*)').or(`sender_id.eq.${currentUser.id},traveler_id.eq.${currentUser.id}`).order('created_at', { ascending: false });
-
-  if (!data?.length) {
-    el.innerHTML = `<div class="empty-state"><div class="empty-icon">📭</div><h3>No bookings yet</h3><p>Browse trips to send a package.</p><button class="btn btn-dark" style="margin-top:16px" onclick="navigate('trips')">Browse Trips</button></div>`;
-    return;
-  }
+  const { data } = await db.from('bookings').select('*, trip:trips(*), sender:profiles!bookings_sender_id_fkey(*), traveler:profiles!bookings_traveler_id_fkey(*)').or(`sender_id.eq.${currentUser.id},traveler_id.eq.${currentUser.id}`).order('created_at',{ascending:false});
+  if (!data?.length) { el.innerHTML=`<div class="empty-state"><div class="empty-icon">📭</div><h3>No bookings yet</h3><p>Browse trips to send a package.</p><button class="btn btn-dark" style="margin-top:16px" onclick="navigate('trips')">Browse Trips</button></div>`; return; }
   el.innerHTML = data.map(b => {
-    const isSender = b.sender_id === currentUser.id;
+    const isSender = b.sender_id===currentUser.id;
     const other = isSender ? b.traveler : b.sender;
-    return `
-      <div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border);margin-bottom:16px;cursor:pointer;transition:all 0.2s" onclick="openBookingDetail('${b.id}')">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-          <div style="display:flex;align-items:center;gap:12px">
-            <div class="avatar">${other?.full_name?.[0]||'?'}</div>
-            <div>
-              <div style="font-weight:700;font-size:15px">${isSender?'Traveler':'Sender'}: ${other?.full_name||'User'}</div>
-              <div style="font-size:13px;color:var(--muted)">${b.trip?.from_city||''} → ${b.trip?.to_city||''}</div>
-            </div>
-          </div>
-          <span class="status-badge status-${b.status}">${b.status.replace(/_/g,' ')}</span>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center">
-          <div style="flex:1;font-size:14px;color:var(--muted)">${b.package_description||''}</div>
-          ${b.agreed_price?`<div style="font-family:Syne,sans-serif;font-weight:700;font-size:18px;color:var(--amber)">$${b.agreed_price}</div>`:''}
-          <div style="font-size:12px;color:var(--muted)">${new Date(b.created_at).toLocaleDateString()}</div>
-        </div>
+    return `<div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border);margin-bottom:16px;cursor:pointer" onclick="openBookingDetail('${b.id}')">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="display:flex;align-items:center;gap:12px"><div class="avatar">${other?.full_name?.[0]||'?'}</div><div><div style="font-weight:700;font-size:15px">${isSender?'Traveler':'Sender'}: ${other?.full_name||'User'}</div><div style="font-size:13px;color:var(--muted)">${b.trip?.from_city||''} → ${b.trip?.to_city||''}</div></div></div>
+        <span class="status-badge status-${b.status}">${b.status.replace(/_/g,' ')}</span>
       </div>
-    `;
+      <div style="display:flex;gap:12px;align-items:center"><div style="flex:1;font-size:14px;color:var(--muted)">${b.package_description||''}</div>${b.agreed_price?`<div style="font-family:Syne,sans-serif;font-weight:700;font-size:18px;color:var(--amber)">$${b.agreed_price}</div>`:''}<div style="font-size:12px;color:var(--muted)">${new Date(b.created_at).toLocaleDateString()}</div></div>
+    </div>`;
   }).join('');
 }
 
-// =================== BOOKING DETAIL + CHAT ===================
+// ========== BOOKING DETAIL + CHAT ==========
 async function openBookingDetail(bookingId) {
-  currentBookingId = bookingId;
-  navigate('booking-detail');
+  currentBookingId = bookingId; navigate('booking-detail');
   await renderBookingDetail();
 }
 
 async function renderBookingDetail() {
   const el = document.getElementById('booking-detail-content');
-  if (!supabase || !currentBookingId) return;
-
-  const { data: booking } = await supabase.from('bookings').select('*, trip:trips(*), sender:profiles!bookings_sender_id_fkey(*), traveler:profiles!bookings_traveler_id_fkey(*)').eq('id', currentBookingId).single();
-  if (!booking) { el.innerHTML = '<p>Booking not found.</p>'; return; }
-
-  const { data: messages } = await supabase.from('messages').select('*, sender:profiles(*)').eq('booking_id', currentBookingId).order('created_at');
-
-  const isSender = booking.sender_id === currentUser.id;
-  const isTraveler = booking.traveler_id === currentUser.id;
+  if (!db||!currentBookingId) return;
+  const { data: booking } = await db.from('bookings').select('*, trip:trips(*), sender:profiles!bookings_sender_id_fkey(*), traveler:profiles!bookings_traveler_id_fkey(*)').eq('id',currentBookingId).single();
+  if (!booking) { el.innerHTML='<p>Booking not found.</p>'; return; }
+  const { data: messages } = await db.from('messages').select('*, sender:profiles(*)').eq('booking_id',currentBookingId).order('created_at');
+  const isSender = booking.sender_id===currentUser.id;
   const other = isSender ? booking.traveler : booking.sender;
 
   el.innerHTML = `
-    <div style="display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start">
-      <!-- LEFT: Chat -->
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start">
       <div>
         <div style="background:var(--white);border-radius:24px;overflow:hidden;border:1px solid var(--border)">
           <div style="background:var(--ink);padding:18px 24px;display:flex;align-items:center;gap:12px">
             <div class="avatar">${other?.full_name?.[0]||'?'}</div>
-            <div>
-              <div style="font-weight:600;font-size:15px;color:#fff">${other?.full_name||'User'}</div>
-              <div style="font-size:12px;color:rgba(255,255,255,0.5)">${booking.trip?.from_city} → ${booking.trip?.to_city} · ${new Date(booking.trip?.travel_date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div>
-            </div>
+            <div><div style="font-weight:600;font-size:15px;color:#fff">${other?.full_name||'User'}</div><div style="font-size:12px;color:rgba(255,255,255,0.5)">${booking.trip?.from_city} → ${booking.trip?.to_city}</div></div>
             <div style="margin-left:auto;width:8px;height:8px;background:#4CAF50;border-radius:50%"></div>
           </div>
-
-          <div id="chat-messages" style="padding:20px;min-height:340px;max-height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:12px">
+          <div id="chat-messages" style="padding:20px;min-height:320px;max-height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:12px">
             ${(messages||[]).map(m => {
-              const isMe = m.sender_id === currentUser.id;
-              if (m.message_type === 'system') return `<div style="text-align:center;font-size:12px;color:var(--muted);padding:8px 16px;background:var(--cream);border-radius:100px;align-self:center">${m.content}</div>`;
+              const isMe = m.sender_id===currentUser.id;
+              if (m.message_type==='system') return `<div style="text-align:center;font-size:12px;color:var(--muted);padding:8px 16px;background:var(--cream);border-radius:100px;align-self:center">${m.content}</div>`;
               return `<div style="display:flex;flex-direction:column;align-items:${isMe?'flex-end':'flex-start'}">
-                <div style="max-width:72%;padding:10px 14px;border-radius:18px;${isMe?'background:var(--ink);color:#fff;border-bottom-right-radius:4px':'background:#F0F0F0;color:var(--ink);border-bottom-left-radius:4px'};font-size:14px;line-height:1.5">${m.content}${m.proposed_price?`<div style="margin-top:6px;font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--amber)">Price proposal: $${m.proposed_price}</div>`:''}</div>
+                <div style="max-width:72%;padding:10px 14px;border-radius:18px;${isMe?'background:var(--ink);color:#fff;border-bottom-right-radius:4px':'background:#F0F0F0;color:var(--ink);border-bottom-left-radius:4px'};font-size:14px;line-height:1.5">${m.content}${m.proposed_price?`<div style="margin-top:6px;font-family:Syne,sans-serif;font-weight:700;font-size:16px;color:var(--amber)">💰 $${m.proposed_price} proposed</div>`:''}</div>
                 <div style="font-size:11px;color:var(--muted);margin-top:3px">${new Date(m.created_at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</div>
               </div>`;
             }).join('')}
           </div>
-
           <div style="padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:center">
             <input id="chat-input" class="input-field" placeholder="Type a message..." style="flex:1;margin:0;border-radius:100px;padding:10px 16px" onkeydown="if(event.key==='Enter')sendMessage()"/>
-            <button style="width:40px;height:40px;background:var(--amber);border:none;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center" onclick="sendMessage()">→</button>
+            <button style="width:40px;height:40px;background:var(--amber);border:none;border-radius:50%;cursor:pointer;font-size:18px" onclick="sendMessage()">→</button>
           </div>
         </div>
-
-        <!-- Price proposal -->
-        ${booking.status === 'negotiating' ? `
-        <div style="background:var(--white);border-radius:16px;padding:18px;margin-top:16px;border:1px solid var(--border);display:flex;gap:12px;align-items:center">
-          <input id="price-input" class="input-field" type="number" placeholder="Propose price ($)" style="flex:1;margin:0" min="1"/>
-          <button class="btn btn-amber" onclick="proposePrice()">Propose Price</button>
-        </div>` : ''}
+        ${booking.status==='negotiating'?`<div style="background:var(--white);border-radius:16px;padding:18px;margin-top:16px;border:1px solid var(--border);display:flex;gap:12px;align-items:center"><input id="price-input" class="input-field" type="number" placeholder="Propose a price ($)" style="flex:1;margin:0" min="1"/><button class="btn btn-amber" onclick="proposePrice()">Propose Price</button></div>`:''}
       </div>
-
-      <!-- RIGHT: Booking info + actions -->
       <div style="display:flex;flex-direction:column;gap:16px">
         <div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border)">
           <div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px">Booking Details</div>
@@ -1011,152 +683,124 @@ async function renderBookingDetail() {
           <div style="font-size:14px;font-weight:500;margin-bottom:14px">${booking.package_description}</div>
           <div style="font-size:13px;color:var(--muted);margin-bottom:4px">Weight</div>
           <div style="font-size:14px;font-weight:500;margin-bottom:14px">${booking.weight_kg} kg</div>
-          ${booking.agreed_price ? `<div style="font-size:13px;color:var(--muted);margin-bottom:4px">Agreed Price</div><div style="font-family:Syne,sans-serif;font-size:22px;font-weight:800;color:var(--amber)">$${booking.agreed_price}</div>` : ''}
+          ${booking.agreed_price?`<div style="font-size:13px;color:var(--muted);margin-bottom:4px">Agreed Price</div><div style="font-family:Syne,sans-serif;font-size:24px;font-weight:800;color:var(--amber)">$${booking.agreed_price}</div>`:''}
         </div>
-
-        ${/* Sender actions */ isSender ? `
-          <div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border)">
-            <div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px">Your Actions</div>
-            ${booking.status === 'negotiating' && booking.agreed_price ? `<button class="btn btn-dark" style="width:100%;justify-content:center;margin-bottom:10px" onclick="proceedToPayment()">🔐 Pay $${booking.agreed_price} (Escrow)</button>` : ''}
-            ${booking.status === 'confirmed' && !booking.pickup_contact_name ? `<button class="btn btn-amber" style="width:100%;justify-content:center;margin-bottom:10px" onclick="openPickupModal()">📱 Add Pickup Contact</button>` : ''}
-            ${booking.pickup_contact_name ? `<div style="padding:14px;background:var(--cream);border-radius:12px;margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px">Pickup Contact</div><div style="font-size:14px;font-weight:600">${booking.pickup_contact_name}</div><div style="font-size:13px;color:var(--muted)">${booking.pickup_contact_phone}</div></div>` : ''}
-            ${booking.status === 'delivered' && !booking.sender_approved ? `<button class="btn btn-amber" style="width:100%;justify-content:center" onclick="approveDelivery()">✅ Approve Delivery & Release Payment</button>` : ''}
-            ${booking.sender_approved ? `<div style="text-align:center;padding:14px;background:#E8F5E9;border-radius:12px;color:#2E7D32;font-weight:600">✅ You approved delivery. Payment released!</div>` : ''}
-          </div>
-        ` : ''}
-
-        ${/* Traveler actions */ isTraveler ? `
-          <div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border)">
-            <div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px">Your Actions</div>
-            ${booking.status === 'confirmed' ? `<button class="btn btn-dark" style="width:100%;justify-content:center;margin-bottom:10px" onclick="markInTransit()">🚶 Mark as Picked Up</button>` : ''}
-            ${booking.status === 'in_transit' ? `<button class="btn btn-amber" style="width:100%;justify-content:center" onclick="markDelivered()">📬 Mark as Delivered</button>` : ''}
-            ${booking.traveler_marked_delivered ? `<div style="text-align:center;padding:14px;background:#E8F5E9;border-radius:12px;color:#2E7D32;font-weight:600">✅ Marked delivered. Awaiting sender approval.</div>` : ''}
-            ${booking.status === 'negotiating' && booking.agreed_price ? `<div style="padding:14px;background:var(--cream);border-radius:12px;font-size:14px;color:var(--muted)">Agreed price: <strong>$${booking.agreed_price}</strong>. Waiting for sender to pay.</div>` : ''}
-          </div>
-        ` : ''}
-
-        <!-- Escrow info -->
-        <div style="background:#0D0D0D;border-radius:20px;padding:24px;color:#fff">
+        ${isSender?`<div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border)">
+          <div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px">Your Actions</div>
+          ${booking.status==='negotiating'&&booking.agreed_price?`<button class="btn btn-dark" style="width:100%;justify-content:center;margin-bottom:10px" onclick="proceedToPayment()">🔐 Pay $${booking.agreed_price} (Escrow)</button>`:''}
+          ${booking.status==='confirmed'&&!booking.pickup_contact_name?`<button class="btn btn-amber" style="width:100%;justify-content:center;margin-bottom:10px" onclick="openPickupModal()">📱 Add Pickup Contact</button>`:''}
+          ${booking.pickup_contact_name?`<div style="padding:14px;background:var(--cream);border-radius:12px;margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px">✅ Pickup Contact Saved</div><div style="font-size:14px;font-weight:600">${booking.pickup_contact_name}</div><div style="font-size:13px;color:var(--muted)">${booking.pickup_contact_phone}</div></div>`:''}
+          ${booking.status==='delivered'&&!booking.sender_approved?`<button class="btn btn-amber" style="width:100%;justify-content:center" onclick="approveDelivery()">✅ Approve & Release Payment</button>`:''}
+          ${booking.sender_approved?`<div style="text-align:center;padding:14px;background:#E8F5E9;border-radius:12px;color:#2E7D32;font-weight:600">🎉 Payment released to traveler!</div>`:''}
+        </div>`:''}
+        ${!isSender?`<div style="background:var(--white);border-radius:20px;padding:24px;border:1px solid var(--border)">
+          <div style="font-family:Syne,sans-serif;font-weight:700;font-size:16px;margin-bottom:16px">Your Actions</div>
+          ${booking.status==='confirmed'?`<button class="btn btn-dark" style="width:100%;justify-content:center;margin-bottom:10px" onclick="markInTransit()">🚶 Mark as Picked Up</button>`:''}
+          ${booking.status==='in_transit'?`<button class="btn btn-amber" style="width:100%;justify-content:center" onclick="markDelivered()">📬 Mark as Delivered</button>`:''}
+          ${booking.traveler_marked_delivered&&!booking.sender_approved?`<div style="text-align:center;padding:14px;background:#E8F5E9;border-radius:12px;color:#2E7D32;font-weight:600">✅ Marked delivered. Waiting for sender approval.</div>`:''}
+          ${booking.status==='completed'?`<div style="text-align:center;padding:14px;background:#E8F5E9;border-radius:12px;color:#2E7D32;font-weight:600">🎉 Complete! Payment has been released to you.</div>`:''}
+        </div>`:''}
+        <div style="background:var(--ink);border-radius:20px;padding:24px;color:#fff">
           <div style="font-size:28px;margin-bottom:8px">🔐</div>
           <div style="font-family:Syne,sans-serif;font-weight:700;margin-bottom:6px">Escrow Protected</div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6">Payment is held safely until both parties confirm delivery. No one can lose money.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6">Payment is held safely until both parties confirm delivery.</p>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 
-  // Scroll chat to bottom
   const chatEl = document.getElementById('chat-messages');
   if (chatEl) chatEl.scrollTop = chatEl.scrollHeight;
 
-  // Subscribe to realtime messages
-  if (chatSubscription) chatSubscription.unsubscribe();
-  chatSubscription = supabase.channel('chat-' + currentBookingId)
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages', filter: `booking_id=eq.${currentBookingId}` },
-      () => renderBookingDetail())
+  if (chatSub) chatSub.unsubscribe();
+  chatSub = db.channel('chat-'+currentBookingId)
+    .on('postgres_changes',{event:'INSERT',schema:'public',table:'messages',filter:`booking_id=eq.${currentBookingId}`},()=>renderBookingDetail())
     .subscribe();
 }
 
 async function sendMessage() {
   const input = document.getElementById('chat-input');
   const content = input?.value?.trim();
-  if (!content || !supabase) return;
+  if (!content||!db) return;
   input.value = '';
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content, message_type: 'text' });
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content,message_type:'text'});
   await renderBookingDetail();
 }
 
 async function proposePrice() {
   const price = parseFloat(document.getElementById('price-input').value);
   if (!price) return;
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: `I'm proposing a price of $${price} for this delivery.`, message_type: 'price_proposal', proposed_price: price });
-  await supabase.from('bookings').update({ agreed_price: price }).eq('id', currentBookingId);
-  document.getElementById('price-input').value = '';
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:`I'm proposing $${price} for this delivery.`,message_type:'price_proposal',proposed_price:price});
+  await db.from('bookings').update({agreed_price:price}).eq('id',currentBookingId);
+  document.getElementById('price-input').value='';
   await renderBookingDetail();
 }
 
 async function proceedToPayment() {
-  // In production: call Stripe API. For now simulate payment confirmation.
-  const confirmed = confirm('💳 In production this opens Stripe checkout. For now, confirm to simulate payment and move booking to confirmed status.');
-  if (!confirmed) return;
-  await supabase.from('bookings').update({ status: 'confirmed', payment_intent_id: 'sim_' + Date.now() }).eq('id', currentBookingId);
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: '✅ Payment made! Funds are held in escrow. Please upload your pickup contact details.', message_type: 'system' });
+  const ok = confirm('In production this opens Stripe checkout. For now, confirm to simulate escrow payment.');
+  if (!ok) return;
+  await db.from('bookings').update({status:'confirmed',payment_intent_id:'sim_'+Date.now()}).eq('id',currentBookingId);
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:'✅ Payment made and held in escrow! Please add your pickup contact details.',message_type:'system'});
   await renderBookingDetail();
 }
 
 async function markInTransit() {
-  await supabase.from('bookings').update({ status: 'in_transit' }).eq('id', currentBookingId);
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: '📦 Package has been picked up! Now in transit.', message_type: 'system' });
+  await db.from('bookings').update({status:'in_transit'}).eq('id',currentBookingId);
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:'📦 Package picked up! Now in transit to destination.',message_type:'system'});
   await renderBookingDetail();
 }
 
 async function markDelivered() {
-  await supabase.from('bookings').update({ status: 'delivered', traveler_marked_delivered: true }).eq('id', currentBookingId);
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: '📬 Package delivered! Waiting for sender to approve and release payment.', message_type: 'system' });
+  await db.from('bookings').update({status:'delivered',traveler_marked_delivered:true}).eq('id',currentBookingId);
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:'📬 Package delivered! Waiting for sender to approve and release payment.',message_type:'system'});
   await renderBookingDetail();
 }
 
 async function approveDelivery() {
-  await supabase.from('bookings').update({ status: 'completed', sender_approved: true }).eq('id', currentBookingId);
-  // Update traveler stats
-  const { data: booking } = await supabase.from('bookings').select('traveler_id').eq('id', currentBookingId).single();
-  if (booking) {
-    const { data: profile } = await supabase.from('profiles').select('total_deliveries').eq('id', booking.traveler_id).single();
-    await supabase.from('profiles').update({ total_deliveries: (profile?.total_deliveries||0) + 1 }).eq('id', booking.traveler_id);
+  await db.from('bookings').update({status:'completed',sender_approved:true}).eq('id',currentBookingId);
+  const { data: b } = await db.from('bookings').select('traveler_id').eq('id',currentBookingId).single();
+  if (b) {
+    const { data: p } = await db.from('profiles').select('total_deliveries').eq('id',b.traveler_id).single();
+    await db.from('profiles').update({total_deliveries:(p?.total_deliveries||0)+1}).eq('id',b.traveler_id);
   }
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: '🎉 Delivery approved! Payment has been released to the traveler. Thank you for using TripSend!', message_type: 'system' });
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:'🎉 Delivery approved! Payment released to the traveler. Thank you for using TripSend!',message_type:'system'});
   await renderBookingDetail();
 }
 
-// =================== PICKUP MODAL ===================
-function openPickupModal() {
-  document.getElementById('modal-pickup').classList.add('open');
-}
+// ========== PICKUP MODAL ==========
+function openPickupModal() { document.getElementById('modal-pickup').classList.add('open'); }
 
 async function handleSavePickup() {
   const name = document.getElementById('pickup-name').value;
   const phone = document.getElementById('pickup-phone').value;
   const address = document.getElementById('pickup-address').value;
-  if (!name || !phone) { showAlert('pickup', 'Name and phone are required.', 'error'); return; }
-  const { error } = await supabase.from('bookings').update({ pickup_contact_name: name, pickup_contact_phone: phone, pickup_contact_address: address }).eq('id', currentBookingId);
-  if (error) { showAlert('pickup', error.message, 'error'); return; }
-  await supabase.from('messages').insert({ booking_id: currentBookingId, sender_id: currentUser.id, content: `📱 Pickup contact added: ${name} — ${phone}`, message_type: 'system' });
+  if (!name||!phone) { showAlert('pickup','Name and phone are required.','error'); return; }
+  await db.from('bookings').update({pickup_contact_name:name,pickup_contact_phone:phone,pickup_contact_address:address}).eq('id',currentBookingId);
+  await db.from('messages').insert({booking_id:currentBookingId,sender_id:currentUser.id,content:`📱 Pickup contact: ${name} — ${phone}`,message_type:'system'});
   closeModal('pickup');
   await renderBookingDetail();
 }
 
-// =================== SETUP ===================
+// ========== SETUP ==========
 function saveSetup() {
-  const url = document.getElementById('setup-supabase-url').value.trim();
-  const key = document.getElementById('setup-supabase-key').value.trim();
-  localStorage.setItem('ts_supabase_url', url);
-  localStorage.setItem('ts_supabase_key', key);
-  SUPABASE_URL = url; SUPABASE_KEY = key;
-  initSupabase();
-  alert('✅ Saved! Refreshing...');
-  location.reload();
+  const url = document.getElementById('setup-url').value.trim();
+  const key = document.getElementById('setup-key').value.trim();
+  if (!url||!key) { showAlert('setup','Both fields are required.','error'); return; }
+  localStorage.setItem('ts_url', url);
+  localStorage.setItem('ts_key', key);
+  showAlert('setup','✅ Saved! Reloading...','success');
+  setTimeout(() => location.reload(), 1000);
 }
 
-function copySql() {
-  navigator.clipboard.writeText(SQL_SCHEMA).then(() => alert('✅ SQL copied to clipboard!'));
-}
-
-// =================== UTILS ===================
+// ========== UTILS ==========
 function showAlert(zone, msg, type) {
-  const el = document.getElementById('alert-' + zone);
+  const el = document.getElementById('alert-'+zone);
   if (el) el.innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
 }
+function closeModal(name) { document.getElementById('modal-'+name).classList.remove('open'); }
 
-function closeModal(name) {
-  document.getElementById('modal-' + name).classList.remove('open');
-}
-
-// =================== BOOT ===================
-initSupabase();
+// ========== BOOT ==========
+initDB();
 checkAuth();
-if (!SUPABASE_URL) {
-  console.log('💡 TripSend: No Supabase URL found. Visit #setup to connect.');
-}
 </script>
 </body>
 </html>
